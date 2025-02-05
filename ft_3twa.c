@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_3twa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 20:07:14 by amsbai            #+#    #+#             */
-/*   Updated: 2025/01/21 20:03:00 by user             ###   ########.fr       */
+/*   Created: 2025/01/19 22:18:36 by user              #+#    #+#             */
+/*   Updated: 2025/01/19 22:34:38 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long *reverse_rotate_stack(long *stack, int len, char c)
+long	ft_3twa(const char *str)
 {
-	while (len - 1 > 0)
+	int	sign;
+	long	number;
+	int	i;
+
+	sign = 1;
+	number = 0;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		ft_swap(&stack[len - 1], &stack[len - 2]);
-		len--;	
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	if (c == 'a')
-		write(1, "rra\n", 4);
-	else if(c == 'b')
-		write(1, "rrb\n", 4);
-	return (stack);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number *= 10;
+		number += (str[i] - 48);
+		i++;
+	}
+	// if(number > INT_MAX || number < INT_MIN)
+	// 	return NULL;
+	return (number * sign);
 }
 
 // int main()
 // {
-// 	long st[] = {1,2,3,4};
-
-// 	long *res;
-// 	res = reverse_rotate_stack(st,4,'b');
-// 	int i = 0;
-// 	while(i < 4)
-// 	{
-// 		printf("%lu\n", res[i]);
-// 		i++;
-// 	}
-// 	return 0;
+// 	printf("%lu\n",ft_3twa("1"));
 // }

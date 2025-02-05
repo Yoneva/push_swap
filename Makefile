@@ -3,26 +3,28 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+         #
+#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 13:16:23 by amsbai            #+#    #+#              #
-#    Updated: 2025/01/11 17:35:18 by amsbai           ###   ########.fr        #
+#    Updated: 2025/02/03 00:25:15 by user             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c 
+SRCS =  checkerror.c ft_swap.c push_swap.c push.c reverse_rotate.c \
+		rotate.c swap_stacks.c ft_3twa.c mtfive.c
 OBJS = $(SRCS:.c=.o)
+LIBFT = test/libft.a
 HEADER = push_swap.h
 
 # prerequisite
 all: $(NAME)
 
 $(NAME): $(OBJS)
-
-	$(CC) $(OBJS) -o $(NAME) 
+	$(CC) $(OBJS) $(LIBFT) -o $(NAME)
+	
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 

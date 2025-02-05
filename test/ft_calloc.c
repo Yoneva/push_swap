@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 22:20:18 by amsbai            #+#    #+#             */
-/*   Updated: 2024/11/07 23:09:05 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/01/16 18:16:49 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*string;
-	size_t	i;
 
-	i = 0;
 	string = malloc(count * size);
 	if (!string)
 		return (NULL);

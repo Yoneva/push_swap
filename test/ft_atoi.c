@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 19:06:09 by amsbai            #+#    #+#             */
-/*   Updated: 2024/10/30 04:22:18 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/01/19 22:18:22 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ int	ft_atoi(const char *str)
 	}
 	return (number * sign);
 }
+
+// #include <stdio.h>
+
 // int main()
 // {
 // 	printf("%d\n", ft_atoi("-4886"));
