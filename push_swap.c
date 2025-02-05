@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 20:14:19 by amsbai            #+#    #+#             */
-/*   Updated: 2025/01/30 04:23:10 by user             ###   ########.fr       */
+/*   Updated: 2025/02/05 22:57:42 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 // }
 int main(int argc, char **argv)
 {
-	// int i;
-	// int	j;
+	// int i = 0;
+	// int	*tab;
 	// int a = argc;
 	// int nbrs[argc - 1];
 	if (argc <= 1)
@@ -43,5 +43,10 @@ int main(int argc, char **argv)
 		numbers(argv,argc - 1);
 		break;
 	}
+	// while(i < argc)
+	// {
+	// 	printf("%d\n", argv[i]);
+	// 	i++;
+	// }
 	return 0;
 }

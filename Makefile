@@ -3,18 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user <user@student.42.fr>                  +#+  +:+       +#+         #
+#    By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 13:16:23 by amsbai            #+#    #+#              #
-#    Updated: 2025/02/03 00:25:15 by user             ###   ########.fr        #
+#    Updated: 2025/02/05 23:59:30 by amsbai           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS =  checkerror.c ft_swap.c push_swap.c push.c reverse_rotate.c \
-		rotate.c swap_stacks.c ft_3twa.c mtfive.c
+SRCS =  checkerror.c utils/ft_swap.c push_swap.c instractions/push.c instractions/reverse_rotate.c \
+		instractions/rotate.c instractions/swap_stacks.c utils/ft_3twa.c mtfive.c utils/bubblesort.c \
+		
 OBJS = $(SRCS:.c=.o)
 LIBFT = test/libft.a
 HEADER = push_swap.h

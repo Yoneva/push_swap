@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:36:03 by amsbai            #+#    #+#             */
-/*   Updated: 2025/01/21 21:11:02 by user             ###   ########.fr       */
+/*   Updated: 2025/02/06 00:03:04 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-t_two_stacks switch_stacks(t_two_stacks *both, char c)
+t_two_stacks switch_stacks(t_two_stacks *both, char c, int i)
 {
-	ft_swap(&both->a[0],&both->b[0]);
+	ft_swap(&both->a[i],&both->b[0]);
 	if (c == 'a')
 		write (1, "pa\n", 3);
 	else if (c == 'b')

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_3twa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:18:36 by user              #+#    #+#             */
-/*   Updated: 2025/01/19 22:34:38 by user             ###   ########.fr       */
+/*   Updated: 2025/02/06 00:02:40 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long	ft_3twa(const char *str)
 {

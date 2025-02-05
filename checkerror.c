@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkerror.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:12:05 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/03 00:27:15 by user             ###   ########.fr       */
+/*   Updated: 2025/02/05 22:57:27 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ t_two_stacks	if_four(long *a, long *b, int len)
 	{
 		reverse_rotate_stack(stack.a,len,'a');
 	}
-	switch_stacks(&stack,'b');
+	switch_stacks(&stack,'b',0);
 	if_three(stack.a + 1, len - 1);
-	switch_stacks(&stack,'a');
+	switch_stacks(&stack,'a',0);
 	return (stack);
 }
 
@@ -120,16 +120,16 @@ long *numbers(char **str, int len)
 		{
 			reverse_rotate_stack(both.a,len,'a');
 		}
-		switch_stacks(&both,'b');
+		switch_stacks(&both,'b',0);
 		if_four(both.a + 1,both.b + 1, len - 1);
-		switch_stacks(&both,'a');
+		switch_stacks(&both,'a',0);
 	}
 	else if (len > 5)
 	{
 		if(len <= 100)// 0 - 15 -> 100
-			mtfive(both,len);
+			return_to_a(both,len);
 		else if(len <= 500)// 0 - 30 -> 500
-			mtfive(both,len);
+			return_to_a(both,len);
 	}
 	return (0);
 }
