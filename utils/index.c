@@ -1,50 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 20:04:44 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/08 20:56:11 by user             ###   ########.fr       */
+/*   Created: 2025/02/06 01:47:24 by user              #+#    #+#             */
+/*   Updated: 2025/02/06 01:49:06 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-long *rotate_stack(long *stack, int len, char c)
+int	smallest(long *stack, int len)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (i < len - 1)
+	j = 0;
+	while(j < len)
 	{
-		ft_swap(&stack[i], &stack[i + 1]);
-		i++;
+		if(stack[i] > stack[j])
+		{
+			i = j;
+			j = 0;
+		}
+		j++;
 	}
-	if (c == 'a')
-		write(1, "ra\n", 3);
-	else if(c == 'b')
-		write(1, "rb\n", 3);
-	return (stack);
+	return (stack[i]);
 }
 
-// int main()
-// {
-// 	long *st;
+int largest(long *stack, int len)
+{
+    int i;
+    int j;
+    long largest_value;
 
-// 	st = malloc(4);
-// 	st[0] = 1;
-// 	st[1] = 2;
-// 	st[2] = 3;
-// 	st[3] = 4;
-	
-// 	rotate_stack(st,4,'b');
-// 	int i = 0;
-// 	while(i < 4)
-// 	{
-// 		printf("%lu\n", st[i]);
-// 		i++;
-// 	}
-// 	return 0;
-// }
+    i = 0;
+    j = 1;
+    largest_value = stack[0];
+    while (j < len)
+    {
+        if (stack[j] > largest_value)
+        {
+            largest_value = stack[j];
+            i = j;
+        }
+        j++;
+    }
+    return (i);
+}

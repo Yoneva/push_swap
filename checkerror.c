@@ -3,33 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   checkerror.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:12:05 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/05 22:57:27 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/02/08 21:00:11 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	smallest(long *stack, int len)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while(j < len)
-	{
-		if(stack[i] > stack[j])
-		{
-			i = j;
-			j = 0;
-		}
-		j++;
-	}
-	return (stack[i]);
-}
 long	*if_three(long *stack, int len)
 {
     if (stack[0] > stack[1] && stack[1] > stack[2])
@@ -62,9 +44,9 @@ t_two_stacks	if_four(long *a, long *b, int len)
 	{
 		reverse_rotate_stack(stack.a,len,'a');
 	}
-	switch_stacks(&stack,'b',0);
+	switch_stacks(&stack,'b');
 	if_three(stack.a + 1, len - 1);
-	switch_stacks(&stack,'a',0);
+	switch_stacks(&stack,'a');
 	return (stack);
 }
 
@@ -120,16 +102,21 @@ long *numbers(char **str, int len)
 		{
 			reverse_rotate_stack(both.a,len,'a');
 		}
-		switch_stacks(&both,'b',0);
+		switch_stacks(&both,'b');
 		if_four(both.a + 1,both.b + 1, len - 1);
-		switch_stacks(&both,'a',0);
+		switch_stacks(&both,'a');
 	}
 	else if (len > 5)
 	{
-		if(len <= 100)// 0 - 15 -> 100
-			return_to_a(both,len);
-		else if(len <= 500)// 0 - 30 -> 500
-			return_to_a(both,len);
+		mtfive(both,len);
+		return_to_a(both,len);
 	}
+	i = 0;
+	while(i < len)
+	{
+		printf("%lu\n", both.a[i]);
+		i++;
+	}
+	
 	return (0);
 }

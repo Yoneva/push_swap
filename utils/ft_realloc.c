@@ -3,37 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
+/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:37:24 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/06 00:02:36 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/02/07 20:13:04 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-// void	*ft_realloc(void *ptr, size_t size)
-// {
-	
-// }
-
-int main()
+void	*ft_realloc(void *str, size_t newsize)
 {
-	int *tab;
-	int i = 0;
+	char	*newptr;
+	size_t	cursize;
 
-	tab = malloc(5*sizeof(int));
-	while(i < 5)
-	{
-		tab[i] = i;
-		//printf("%d\n", tab[i]);
-		i++;
-	}
-	tab = realloc(tab,2);
-	i = 0;
-	while(i < 2)
-	{
-		printf("%d\n", tab[i]);
-		i++;
-	}
+	if (str == 0)
+		return (malloc(newsize));
+	cursize = sizeof(str);
+	if (newsize <= cursize)
+		return (str);
+	newptr = malloc(newsize);
+	ft_memcpy(str, newptr, cursize);
+	free(str);
+	return (newptr);
 }
