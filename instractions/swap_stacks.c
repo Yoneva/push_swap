@@ -6,13 +6,13 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:29:59 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/06 00:03:15 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/02/11 13:33:46 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-long *swap_stacks(long *stack, char c)
+long	*swap_stacks(long *stack, char c)
 {
 	ft_swap(&stack[0], &stack[1]);
 	if (c == 'a')
@@ -23,14 +23,19 @@ long *swap_stacks(long *stack, char c)
 }
 // int main()
 // {
-// 	long st[] = {1,2,3,4};
+// 	long *st;;
 
-// 	long *res;
-// 	res = swap_stacks(st,'b');
+// 	st = malloc(4);
+// 	st[0] = 1;
+// 	st[1] = 2;
+// 	st[2] = 3;
+// 	st[3] = 4;
+	
+// 	swap_stacks(st,'b');
 // 	int i = 0;
 // 	while(i < 4)
 // 	{
-// 		printf("%lu\n", res[i]);
+// 		printf("%lu\n", st[i]);
 // 		i++;
 // 	}
 // 	return 0;

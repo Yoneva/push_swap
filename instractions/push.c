@@ -3,41 +3,81 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:36:03 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/08 19:42:06 by user             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:35:44 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_two_stacks	switch_stacks(t_two_stacks *both, char c)
+void	switch_stacks(t_two_stacks *both, char c)
 {
-	ft_swap(&both->a[0],&both->b[0]);
-	if (c == 'a')
-		write (1, "pa\n", 3);
-	else if (c == 'b')
-		write (1, "pb\n", 3);
-	return (*both);
+	if (c == 'b' && both->a_size > 0)
+	{
+		both->b = ft_realloc(both->b, (both->b_size + 1));
+		if (!both->b)
+			return;
+		ft_memmove(&both->b[1], &both->b[0], both->b_size * sizeof(long));
+		both->b[0] = both->a[0];
+		ft_memmove(&both->a[0], &both->a[1], (both->a_size - 1) * sizeof(long));
+		both->b_size++;
+		both->a_size--;
+		both->a = ft_realloc(both->a , both->a_size);
+		write(1, "pb\n", 3);
+	}
+	else if (c == 'a' && both->b_size > 0)
+	{
+		both->a = ft_realloc(both->a , (both->a_size + 1));
+		if (!both->a)
+			return;
+		ft_memmove(&both->a[1], &both->a[0], both->a_size * sizeof(long));
+		both->a[0] = both->b[0];
+		ft_memmove(&both->b[0], &both->b[1], (both->b_size - 1) * sizeof(long));
+		both->a_size++;
+		both->b_size--;
+		both->b = ft_realloc(both->b, both->b_size);
+		write(1, "pa\n", 3);
+	}
 }
 
 // int main()
 // {
 // 	t_two_stacks hh;
 	
-// 	long a[] = {1, 2, 3, 4};
-// 	long b[4];
+// 	long *a;
+// 	long *b;
+
+// 	b = malloc(2 * sizeof(long));
+// 	a = malloc(4* sizeof(long));
+// 	b[0] = 9;
+// 	b[1] = 12;
+// 	a[0] = 1;
+// 	a[1] = 2;
+// 	a[2] = 3;
+// 	a[3] = 4;
+	
 // 	hh.a = a;
 // 	hh.b = b;
+// 	hh.a_size = 4;
+// 	hh.b_size = 2;
 
-// 	long *res;
-// 	hh = switch_stacks(hh,'b');
+// 	switch_stacks(&hh,'a');
+// 	// printf("------%lu\n", hh.b[1]);
 // 	int i = 0;
-// 	while(i < 4)
-// 	{
-// 		printf("a = %lu , b = %lu\n", hh.a[i], hh.b[i]);
-// 		i++;
-// 	}
+// 	printf("Stack A:\n");
+//     while(i < hh.a_size)
+//     {
+//         printf("a[%d] = %lu\n", i, hh.a[i]);
+//         i++;
+//     }
+//     i = 0;
+//     printf("Stack B:\n");
+//     while(i < hh.b_size)
+//     {
+//         printf("b[%d] = %lu\n", i, hh.b[i]);
+//         i++;
+//     }
 // 	return 0;
 // }

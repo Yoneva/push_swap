@@ -6,13 +6,13 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:07:14 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/06 00:03:08 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/02/11 16:28:03 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-long *reverse_rotate_stack(long *stack, int len, char c)
+long	*reverse_rotate_stack(long *stack, int len, char c)
 {
 	while (len - 1 > 0)
 	{
@@ -28,14 +28,25 @@ long *reverse_rotate_stack(long *stack, int len, char c)
 
 // int main()
 // {
-// 	long st[] = {1,2,3,4};
+// 	long *st;
 
-// 	long *res;
-// 	res = reverse_rotate_stack(st,4,'b');
+// 	st = malloc(10 * sizeof(long));
+// 	st[0] = 1;
+// 	st[1] = 2;
+// 	st[2] = 3;
+// 	st[3] = 4;
+// 	st[4] = 5;
+// 	st[5] = 6;
+// 	st[6] = 7;
+// 	st[7] = 8;
+// 	st[8] = 9;
+// 	st[9] = 10;
+	
+// 	reverse_rotate_stack(st,10,'b');
 // 	int i = 0;
-// 	while(i < 4)
+// 	while(i < 10)
 // 	{
-// 		printf("%lu\n", res[i]);
+// 		printf("%lu\n", st[i]);
 // 		i++;
 // 	}
 // 	return 0;

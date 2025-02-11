@@ -6,7 +6,7 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 22:18:36 by user              #+#    #+#             */
-/*   Updated: 2025/02/06 00:02:40 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/02/11 13:33:26 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_3twa(const char *str)
 {
-	int	sign;
+	int		sign;
 	long	number;
-	int	i;
+	int		i;
 
 	sign = 1;
 	number = 0;
@@ -35,8 +35,6 @@ long	ft_3twa(const char *str)
 		number += (str[i] - 48);
 		i++;
 	}
-	// if(number > INT_MAX || number < INT_MIN)
-	// 	return NULL;
 	return (number * sign);
 }
 

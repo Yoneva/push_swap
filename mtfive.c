@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mtfive.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 22:38:52 by user              #+#    #+#             */
-/*   Updated: 2025/02/08 20:58:45 by user             ###   ########.fr       */
+/*   Updated: 2025/02/11 17:13:33 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,78 +14,66 @@
 
 long if_in_range(long *unsorted, int len)
 {
-    int j;
-    long *sorted;
-    long index;
+	int		j;
+	long	*sorted;
 
-    j = 0;
-    index = 0;
-    sorted = bubble(unsorted, len);
-    while (j < len)
-    {
-        if (unsorted[0] == sorted[j])
-        {
-            index = j;
-            break;
-        }
-        j++;
-    }
-    return (index);
-}
-
-void	mtfive(t_two_stacks both, int len)
-{
-    int remaining = len;
-    long start = 0;
-    long end = 15;
-    long index;
-
-    if (len > 100)
-        end = 30;
-    while (remaining > 0)
-    {
-        index = if_in_range(both.a + start, remaining);
-        if (index > start && index < end)
-        {
-            switch_stacks(&both, 'b');
-            start++;
-            end++;
-            remaining--;
-        }
-        else if (index <= start)
-        {
-            switch_stacks(&both, 'b');
-            rotate_stack(both.b, remaining, 'b');
-            start++;
-            end++;
-            remaining--;
-        }
-        else if (index >= end)
-            rotate_stack(both.a, remaining, 'a');
-    }
-}
-
-void return_to_a(t_two_stacks both, int len)
-{
-    int i;
-    int large_index;
-    int b_size = len;
-
-    i = 0;
-    while (i < len)
-    {
-        large_index = largest(both.b + i, b_size);
-        while (both.b[0] != both.b[large_index])
-        {
-			if (large_index < b_size / 2)
-                rotate_stack(both.b, b_size, 'b');
-			else
-				reverse_rotate_stack(both.b, b_size, 'b');
-        }
-        switch_stacks(&both, 'a');
-		b_size--;
-		i++;
+	j = 0;
+	sorted = bubble(unsorted, len);
+	while (j < len)
+	{
+		if (unsorted[0] == sorted[j])
+		{
+			break;
+		}
+		j++;
 	}
-	rotate_stack(both.b, len, 'b');
-    switch_stacks(&both, 'a');
+	return (j);
+}
+
+void	mtfive(t_two_stacks *both, int len)
+{
+	int	start;
+	int	end;
+	int	index;
+
+	start = 0;
+	end = 0.0375 * len + 11.25;
+	while (both->a_size > 0)
+	{
+		index = if_in_range(both->a, both->a_size);
+		if (index > start && index < end)
+		{
+			switch_stacks(both, 'b');
+			start++;
+			end++;
+		}
+		else if (index <= start)
+		{
+			switch_stacks(both, 'b');
+			rotate_stack(both->b, both->b_size, 'b');
+			start++;
+			end++;
+		}
+		else if (index >= end)
+			rotate_stack(both->a, both->a_size, 'a');
+	}
+}
+
+void	return_to_a(t_two_stacks *both, int len)
+{
+	int	large_index;
+
+	while (both->a_size < len)
+	{
+		large_index = largest(both->b, both->b_size);
+		while (both->b[0] != both->b[large_index])
+		{
+			if (large_index < both->b_size / 2)
+				rotate_stack(both->b, both->b_size, 'b');
+			else
+				reverse_rotate_stack(both->b, both->b_size, 'b');
+			large_index = largest(both->b, both->b_size);
+		}
+		switch_stacks(both, 'a');
+	}
 }

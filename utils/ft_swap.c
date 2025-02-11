@@ -6,15 +6,15 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:32:48 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/06 00:02:30 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/02/11 13:36:27 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ft_swap(long *a, long *b)
+void	ft_swap(long *a, long *b)
 {
-	long tmp;
+	long	tmp;
 
 	tmp = *a;
 	*a = *b;

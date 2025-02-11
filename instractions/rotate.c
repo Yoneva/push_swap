@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 20:04:44 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/08 20:56:11 by user             ###   ########.fr       */
+/*   Updated: 2025/02/11 16:28:06 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-long *rotate_stack(long *stack, int len, char c)
+long	*rotate_stack(long *stack, int len, char c)
 {
 	int	i;
 
