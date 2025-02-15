@@ -1,32 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   is_correct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 21:37:24 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/11 13:36:23 by amsbai           ###   ########.fr       */
+/*   Created: 2025/02/12 18:10:06 by amsbai            #+#    #+#             */
+/*   Updated: 2025/02/15 12:46:47 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "checker.h"
 
-void	*ft_realloc(void *str, size_t newsize)
+int	duplicate_check(long *tab, long nbr, int len)
 {
-	char	*newptr;
+	int	i;
 
-	if (str == 0)
-		return (malloc(newsize * sizeof(long)));
-	if(newsize == 0)
+	i = 0;
+	if (!tab)
+		return (0);
+	while (i < len)
 	{
-		free (str);
-		return NULL;	
+		if (tab[i] == nbr)
+			return (1);
+		i++;
 	}
-	newptr = malloc(newsize * sizeof(long));
-	if(!newptr)
-		return NULL;
-	ft_memmove(newptr, str, newsize * sizeof(long));
-	free(str);
-	return (newptr);
+	return (0);
+}
+
+int	valid_nbr(const char *tab)
+{
+	int	i;
+
+	i = 0;
+	if ((tab[i] == '+' || tab[i] == '-') && tab[i + 1] != '\0')
+		i++;
+	while (tab[i])
+	{
+		if (!ft_isdigit(tab[i]))
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }

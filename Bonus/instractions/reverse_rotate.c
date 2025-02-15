@@ -1,39 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_stacks.c                                      :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 19:29:59 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/11 13:33:46 by amsbai           ###   ########.fr       */
+/*   Created: 2025/01/11 20:07:14 by amsbai            #+#    #+#             */
+/*   Updated: 2025/02/15 12:43:01 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
-long	*swap_stacks(long *stack, char c)
+long	*reverse_rotate_stack(long *stack, int len)
 {
-	ft_swap(&stack[0], &stack[1]);
-	if (c == 'a')
-		write(1, "sa\n", 3);
-	else if(c == 'b')
-		write(1, "sb\n", 3);
+	while (len - 1 > 0)
+	{
+		ft_swap(&stack[len - 1], &stack[len - 2]);
+		len--;
+	}
 	return (stack);
 }
+
 // int main()
 // {
-// 	long *st;;
+// 	long *st;
 
-// 	st = malloc(4);
+// 	st = malloc(10 * sizeof(long));
 // 	st[0] = 1;
 // 	st[1] = 2;
 // 	st[2] = 3;
 // 	st[3] = 4;
-	
-// 	swap_stacks(st,'b');
+// 	st[4] = 5;
+// 	st[5] = 6;
+// 	st[6] = 7;
+// 	st[7] = 8;
+// 	st[8] = 9;
+// 	st[9] = 10;
+
+// 	reverse_rotate_stack(st,10,'b');
 // 	int i = 0;
-// 	while(i < 4)
+// 	while(i < 10)
 // 	{
 // 		printf("%lu\n", st[i]);
 // 		i++;

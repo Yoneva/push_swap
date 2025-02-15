@@ -1,46 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   is_correct.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 22:04:07 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/13 11:39:40 by amsbai           ###   ########.fr       */
+/*   Created: 2025/02/12 18:10:06 by amsbai            #+#    #+#             */
+/*   Updated: 2025/02/13 11:44:36 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int	duplicate_check(long *tab, long nbr, int len)
 {
-	char	*dest;
-	char	*srcc;
+	int	i;
 
-	dest = (char *)dst;
-	srcc = (char *)src;
-	if (src == dst || len == 0)
+	i = 0;
+	if (!tab)
+		return (0);
+	while (i < len)
 	{
-		return (dst);
+		if (tab[i] == nbr)
+			return (1);
+		i++;
 	}
-	if (srcc > dest)
-	{
-		return (ft_memcpy(dst, src, len));
-	}
-	else
-	{
-		while (len-- > 0)
-		{
-			dest[len] = srcc[len];
-		}
-	}
-	return (dst);
+	return (0);
 }
 
-// int main()
-// {
-// 	char str[] ="1234567890";
+int	valid_nbr(const char *tab)
+{
+	int	i;
 
-// 	ft_memmove(str + 1, str, 9);
-// 	printf("%s\n" , str);
-// }
+	i = 0;
+	if ((tab[i] == '+' || tab[i] == '-') && tab[i + 1] != '\0')
+		i++;
+	while (tab[i])
+	{
+		if (!ft_isdigit(tab[i]))
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}

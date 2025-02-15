@@ -6,57 +6,61 @@
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 22:38:52 by user              #+#    #+#             */
-/*   Updated: 2025/02/11 17:13:33 by amsbai           ###   ########.fr       */
+/*   Updated: 2025/02/13 14:46:14 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long if_in_range(long *unsorted, int len)
+int	if_in_range(long *sorted, int len, long value)
 {
-	int		j;
-	long	*sorted;
+	int	j;
 
 	j = 0;
-	sorted = bubble(unsorted, len);
 	while (j < len)
 	{
-		if (unsorted[0] == sorted[j])
+		if (value == sorted[j])
 		{
-			break;
+			return (j);
 		}
 		j++;
 	}
-	return (j);
+	return (-1);
+}
+
+void	incrementer(int *start, int *end)
+{
+	(*start)++;
+	(*end)++;
 }
 
 void	mtfive(t_two_stacks *both, int len)
 {
-	int	start;
-	int	end;
-	int	index;
+	int		start;
+	int		end;
+	int		index;
 
+	both->sorted = bubble(both->a, both->a_size);
 	start = 0;
 	end = 0.0375 * len + 11.25;
 	while (both->a_size > 0)
 	{
-		index = if_in_range(both->a, both->a_size);
-		if (index > start && index < end)
+		index = if_in_range(both->sorted, len, both->a[0]);
+		if (index >= start && index < end)
 		{
 			switch_stacks(both, 'b');
-			start++;
-			end++;
+			incrementer(&start, &end);
 		}
-		else if (index <= start)
+		else if (index < start)
 		{
 			switch_stacks(both, 'b');
 			rotate_stack(both->b, both->b_size, 'b');
-			start++;
-			end++;
+			incrementer(&start, &end);
 		}
 		else if (index >= end)
 			rotate_stack(both->a, both->a_size, 'a');
 	}
+	free(both->sorted);
 }
 
 void	return_to_a(t_two_stacks *both, int len)

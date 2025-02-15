@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <user@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 20:14:19 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/08 19:45:12 by user             ###   ########.fr       */
+/*   Created: 2025/02/14 10:28:13 by amsbai            #+#    #+#             */
+/*   Updated: 2025/02/15 14:33:12 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../checker.h"
 
-int main(int argc, char **argv)
+int	ft_strcmp(char *a, char *b)
 {
-	if (argc <= 1)
+	int	i;
+
+	i = 0;
+	while (a[i] || b[i])
 	{
-		write(1, "ERROR!\n", 7);
-		return 0;
+		if (a[i] != b[i])
+			break ;
+		i++;
 	}
-	while (argc > 1)
-	{
-		numbers(argv,argc - 1);
-		break;
-	}
-	return 0;
+	return (a[i] - b[i]);
 }
+
+// int main()
+// {
+// 	printf("%d\n", ft_strcmp("amala","amal"));
+// }

@@ -1,46 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsbai <amsbai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 22:04:07 by amsbai            #+#    #+#             */
-/*   Updated: 2025/02/13 11:39:40 by amsbai           ###   ########.fr       */
+/*   Created: 2025/01/19 22:18:36 by user              #+#    #+#             */
+/*   Updated: 2025/02/15 12:32:21 by amsbai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../checker.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+long	ft_atol(const char *str)
 {
-	char	*dest;
-	char	*srcc;
+	int		sign;
+	long	number;
+	int		i;
 
-	dest = (char *)dst;
-	srcc = (char *)src;
-	if (src == dst || len == 0)
+	sign = 1;
+	number = 0;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		return (dst);
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	if (srcc > dest)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		return (ft_memcpy(dst, src, len));
+		number *= 10;
+		number += (str[i] - 48);
+		i++;
 	}
-	else
-	{
-		while (len-- > 0)
-		{
-			dest[len] = srcc[len];
-		}
-	}
-	return (dst);
+	return (number * sign);
 }
 
 // int main()
 // {
-// 	char str[] ="1234567890";
-
-// 	ft_memmove(str + 1, str, 9);
-// 	printf("%s\n" , str);
+// 	printf("%lu\n",ft_3twa("1"));
 // }
